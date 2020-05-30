@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Calculator </title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<style type="text/css">
+body{
+margin:0;
+padding: 0;
+width: 100%;
+font-family: sans-serif;
+font-size: 20px;
+}
+div{
+border: 2px solid grey;
+padding:50px 20px;
+background: #1111;
+}
+h1{
+font-family: cursive;
+}
+input{
+margin: 15px 15px;
+width: 60%;
+font-size: 20px;
+height: 25px;
+color: green;
+outline: none;
+transition: .5s;
+padding-left: 5px;
+border: none;
+border-bottom: .5px solid grey;
+background: transparent;
+}
+input:hover{
+border-bottom: .5px solid green;
+transform: scale(1.05);
+}
+ button:hover{
+transform: scale(1.05);
+}
+button{
+margin: 10px 15px;
+width: 100px;
+height: 30px;
+border-radius: 3px;
+border: none;
+background: green;
+color: #fff;
+outline: none;
+transition: .5s;
+font-weight: bold;
+}
+span{
+margin: 10px 15px;
+text-decoration: underline;
+}
+#ans, #ans1{
+margin: 0;
+color:green;
+text-decoration:none;
+}
+footer{
+postion:relative;
+bottom: 0;
+left: 0;
+background: navy;
+padding: 0px 10px;
+color: #fff;
+font-size: 10px;
+}
+h4{
+margin: 3px 15px;
+text-align: center;
+border: 2px dotted green;
+transition: .4s;
+}
+h4:hover{
+transform: scale(1.1);
+}
+</style>
+</head>
+<body>
+<div>
+<h1>Sridhar achariya answer generator</h1>
+<h4>ax<sup>2</sup> + bx + c = 0</h4>
+<br/><input type="number" id="ia" placeholder="Value of 'a'"/>
+<input type="number" id="ib" placeholder="Value of 'b'"/>
+<input type="number" id="ic" placeholder="Value of 'c'"/>
+<button onclick="showres()"> Submit</button><hr/>
+<span> Your 1st value of 'x' : </span><span id="ans"></span><br/>
+<span> Your 2nd value of 'x' : </span><span id="ans1"></span>
+</div>
+<footer>
+<p>This page is created by Riju Sharma</p>
+</footer>
+
+<!--script-->
+
+<script>
+function showres(){
+var a=document.getElementById("ia").value;
+var b=document.getElementById("ib").value;
+var c=document.getElementById("ic").value;
+var bsq=Math.pow(b,2);
+var axc= 4*a*c;
+var sqrt=Math.sqrt(bsq-axc);
+var minb=(-1)*b;
+var din=2*a;
+var numa=minb+sqrt;
+var numa1=minb-sqrt;
+var pans=numa/din;
+var nans=numa1/din;
+document.getElementById("ans").innerHTML=pans;
+document.getElementById("ans1").innerHTML=nans;
+
+/* complex part included*/
+var check=isNaN(pans);
+if(check==true){
+document.getElementById("ans").style.color="red";
+document.getElementById("ans1").style.color="red";
+alert(" The answers are complex number ");
+
+}
+else{
+document.getElementById("ans").style.color="green";
+
+}
+}
+</script>
+
+</body>
+</html>
